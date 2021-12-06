@@ -39,7 +39,6 @@ class SKOS(Enum):
     Concept = 10
 
 
-
 @unique
 class EDM(Enum):
     # EDM Classes
@@ -75,8 +74,29 @@ class DC(Enum):
 #################################################################################################
 
 class Relation:
-    pass
+    type = None
+    class_name = None
+
+    def __init__(self, type: Type, class_name):
+        self.type = type
+        self.class_name = class_name
 
 
 class Node:
-    pass
+    type = None
+    class_name = None
+    name = None
+
+    def __init__(self, type: Type, class_name, name):
+        self.type = type
+        self.class_name = class_name
+        self.name = name
+
+
+class Graph:
+    Nodes = [Node]
+
+    def __init__(self, Nodes: [Node]):
+        self.Nodes = Nodes
+
+# TODO how to create the relations between nodes and relationships ?
